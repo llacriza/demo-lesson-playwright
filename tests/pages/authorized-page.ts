@@ -1,5 +1,5 @@
 import { BasePage } from './base-page'
-import type { Locator} from '@playwright/test'
+import type { Locator } from '@playwright/test'
 import type { Page } from '@playwright/test'
 
 export class AuthorizedPage extends BasePage {
