@@ -15,6 +15,6 @@ test('login with correct credentials and verify order creation page', async ({ p
   const authPage = new LoginPage(page)
   await authPage.open()
   const orderCreationPage = await authPage.signIn(USERNAME, PASSWORD)
-  await orderCreationPage.statusButton.click({ force: true })
+  await orderCreationPage.buttonStatus.click({ force: true })
   // verify at least few elements on the order creation page
 })
