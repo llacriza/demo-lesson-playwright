@@ -1,23 +1,24 @@
-import { type Locator, type Page } from '@playwright/test'
+import type { Locator } from '@playwright/test'
+import type { Page } from '@playwright/test'
+import { AuthorizedPage } from './authorized-page'
 
-export class OrderPage {
-  readonly page: Page
-  readonly statusButton: Locator
+export class OrderPage extends AuthorizedPage {
   readonly name: Locator
   readonly phone: Locator
   readonly comment: Locator
   readonly orderButton: Locator
-  readonly logoutButton: Locator
   readonly notificationPopUp: Locator
+  readonly notificationPopUpText: Locator
+  readonly notificationPopUpOkButton: Locator
 
   constructor(page: Page) {
-    this.page = page
-    this.statusButton = page.getByTestId('openStatusPopup-button')
+    super(page)
     this.name = page.getByTestId('username-input')
     this.phone = page.getByTestId('phone-input')
     this.comment = page.getByTestId('comment-input')
     this.orderButton = page.getByTestId('createOrder-button')
-    this.logoutButton = page.getByTestId('logout-button')
     this.notificationPopUp = page.getByTestId('orderSuccessfullyCreated-popup')
+    this.notificationPopUpText = page.locator('.notification-popup__text')
+    this.notificationPopUpOkButton = page.getByTestId('orderSuccessfullyCreated-popup-ok-button')
   }
 }
